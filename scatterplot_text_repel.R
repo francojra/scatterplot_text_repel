@@ -18,4 +18,9 @@
 ### agradável. Da mesma forma, o pacote randomNames é usado para gerar nomes
 ### randomicamente que serão rotulados no gráfico.
 
+library(ggrepel)
+library(palmerpenguins)
+library(randomNames)
+library(tidyverse)
+
 
