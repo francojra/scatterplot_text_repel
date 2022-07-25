@@ -55,3 +55,23 @@ penguins <- penguins %>%
       TRUE ~ ""
       )
     ) 
+
+# Gráfico de base --------------------------------------------------------------------------------------------------------------------------
+
+### O gráfico de base é um scatterplot que mostra a associação entre o comprimento
+### das nadadeiras e comprimento do bicos de pinguins. Os pontos são coloridos
+### de acordo com as espécies que indica uma informação extra na camada do gráfico.
+
+# Note `color = species` and s`hape = species`.
+# This means each species will have BOTH  a different color and shape.
+plt <- ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(
+    aes(color = species, shape = species),
+    size = 1.5, 
+    alpha = 0.8 # It's nice to add some transparency because there may be overlap.
+  ) +
+  # Use custom colors
+  scale_color_manual(
+    values = c("#386cb0", "#fdb462", "#7fc97f")
+  )
+plt
