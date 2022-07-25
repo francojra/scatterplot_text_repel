@@ -42,7 +42,8 @@ penguins <- drop_na(penguins)
 ### é adicionada ao dataset para indicar quais nomes são destacados no plot. Esses
 ### são os nomes iniciados com a letra "C".
 
-## Generate random names
+# Gerar nomes randômicos como uma nova variável --------------------------------------------------------------------------------------------
+
 # The results of set.seed may depends on R version.
 set.seed(2021 + 03 + 27)
 name_vector <- randomNames(nrow(penguins), which.names = "first")
