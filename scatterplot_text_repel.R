@@ -1,6 +1,7 @@
 # The R Graph Gallery - Scatterplot with automatic text repel
 # Autoria do script: Jeanne Franco
 # Data: 24/07/2022
+# Referência: https://r-graph-gallery.com/web-scatterplot-and-ggrepel.html
 
 # Introdução -------------------------------------------------------------------------------------------------------------------------------
 
@@ -96,5 +97,65 @@ plt <- plt +
     nudge_x = .15,
     nudge_y = .5,
     color = "grey50"
+  )
+plt
+
+# Gráfico final ----------------------------------------------------------------------------------------------------------------------------
+
+### O gráfico acima está quase pronto para publicação. O que é necessário agora é
+### um bom título, uma legenda para tornar cores e formas mais perspicaz, e algumas
+### customizações nos eixos.
+
+plt <- plt + 
+  # Add axes labels, title, and subtitle
+  labs(
+    title = "Palmer Penguins Data Visualization",
+    subtitle = "Scatter plot of flipper lenth vs bill length",
+    x = "flip length (mm)",
+    y = "bill length (mm)"
+  ) +  
+  theme(
+    # The default font when not explicitly specified
+    text = element_text(family = "Lobster Two", size = 8, color = "black"),
+    
+    # Customize legend text, position, and background.
+    legend.text = element_text(size = 9, family = "Roboto"),
+    legend.title = element_text(face = "bold", size = 12, family = "Roboto"),
+    legend.position = c(1, 0),
+    legend.justification = c(1, 0),
+    legend.background = element_blank(),
+    # This one removes the background behind each key in the legend
+    legend.key = element_blank(),
+    
+    # Customize title and subtitle font/size/color
+    plot.title = element_text(
+      family = "Lobster Two", 
+      size = 20,
+      face = "bold", 
+      color = "#2a475e"
+    ),
+    plot.subtitle = element_text(
+      family = "Lobster Two", 
+      size = 15, 
+      face = "bold", 
+      color = "#1b2838"
+    ),
+    plot.title.position = "plot",
+    
+    # Adjust axis parameters such as size and color.
+    axis.text = element_text(size = 10, color = "black"),
+    axis.title = element_text(size = 12),
+    axis.ticks = element_blank(),
+    # Axis lines are now lighter than default
+    axis.line = element_line(colour = "grey50"),
+    
+    # Only keep y-axis major grid lines, with a grey color and dashed type.
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.major.y = element_line(color = "#b4aea9", linetype = "dashed"),
+    
+    # Use a light color for the background of the plot and the panel.
+    panel.background = element_rect(fill = "#fbf9f4", color = "#fbf9f4"),
+    plot.background = element_rect(fill = "#fbf9f4", color = "#fbf9f4")
   )
 plt
