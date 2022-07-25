@@ -75,3 +75,26 @@ plt <- ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm)) +
     values = c("#386cb0", "#fdb462", "#7fc97f")
   )
 plt
+
+# Adicionar rótulos sem sobreposição -------------------------------------------------------------------------------------------------------
+
+### É um desafio adicionar muitos rótulos em um gráfico devido à tendência de 
+### sobreposição tornar a figura incompreensível. Felizmente, o pacote ggrepel
+### resolve esse problema. Ele promove um algoritmo que automaticamente realoca
+### os rótulos. 
+
+plt <- plt + 
+  geom_text_repel(
+    aes(label = highlight),
+    family = "Poppins",
+    size = 3,
+    min.segment.length = 0, 
+    seed = 42, 
+    box.padding = 0.5,
+    max.overlaps = Inf,
+    arrow = arrow(length = unit(0.010, "npc")),
+    nudge_x = .15,
+    nudge_y = .5,
+    color = "grey50"
+  )
+plt
